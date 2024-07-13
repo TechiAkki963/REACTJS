@@ -188,4 +188,29 @@ summary;
 console.log(true && "Some string");
 console.log(false && "Some String");
 
-//falsy: 0, " ",null
+//falsy: 0, " " - empty value ,null
+
+//? Arrow function
+// const sum = (num1, num2) => {
+// return num1 + num2;
+// }
+// console.log(sum(2,3));
+
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || "no data";
+console.log(countWrong);
+
+const count = book.reviews.librarything.reviewsCount ?? "no data";
+console.log(count);
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+
+  //? optional chaining = ?
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  return goodreads + librarything;
+}
+console.log(getTotalReviewCount(book));
