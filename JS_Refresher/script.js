@@ -147,70 +147,87 @@ function getBook(id) {
 const book = getBook(1);
 book;
 
-// const title = book.title;
-// const author = book.author;
-// author;
+// // const title = book.title;
+// // const author = book.author;
+// // author;
 
-const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
-  book;
+// const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+//   book;
 
-console.log(author, title, genres);
+// console.log(author, title, genres);
 
-// const primaryGenre = genres[0];
-// const secondaryGenre = genres[1];
+// // const primaryGenre = genres[0];
+// // const secondaryGenre = genres[1];
 
-const [primaryGenre, secondaryGenre, ...othergenres] = genres;
+// const [primaryGenre, secondaryGenre, ...othergenres] = genres;
 
-console.log(primaryGenre, secondaryGenre, othergenres);
+// console.log(primaryGenre, secondaryGenre, othergenres);
 
-const newGenres = [...genres, "epic fantasy"];
-newGenres;
+// const newGenres = [...genres, "epic fantasy"];
+// newGenres;
 
-const updatedBook = {
-  ...book,
-  // Adding a new property
-  moviePublicationDate: "2012-01-19",
-  // overiding existing property
-  pages: 1210,
-};
-updatedBook;
+// const updatedBook = {
+//   ...book,
+//   // Adding a new property
+//   moviePublicationDate: "2012-01-19",
+//   // overiding existing property
+//   pages: 1210,
+// };
+// updatedBook;
 
-//
-// Template literals
+// //
+// // Template literals
 
-const summary = `${title} is a ${pages} page long book is published on ${
-  publicationDate.split("-")[0]
-} which was written by ${author}`;
-summary;
+// const summary = `${title} is a ${pages} page long book is published on ${
+//   publicationDate.split("-")[0]
+// } which was written by ${author}`;
+// summary;
 
-//
-// Short Circuiting
-console.log(true && "Some string");
-console.log(false && "Some String");
+// //
+// // Short Circuiting
+// console.log(true && "Some string");
+// console.log(false && "Some String");
 
-//falsy: 0, " " - empty value ,null
+// //falsy: 0, " " - empty value ,null
 
-//? Arrow function
-// const sum = (num1, num2) => {
-// return num1 + num2;
+// //? Arrow function
+// // const sum = (num1, num2) => {
+// // return num1 + num2;
+// // }
+// // console.log(sum(2,3));
+
+// const getYear = (str) => str.split("-")[0];
+// console.log(getYear(publicationDate));
+
+// console.log(book.reviews.librarything.reviewsCount);
+// const countWrong = book.reviews.librarything.reviewsCount || "no data";
+// console.log(countWrong);
+
+// const count = book.reviews.librarything.reviewsCount ?? "no data";
+// console.log(count);
+
+// function getTotalReviewCount(book) {
+//   const goodreads = book.reviews?.goodreads?.reviewsCount;
+
+//   //? optional chaining = ?
+//   const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+//   return goodreads + librarything;
 // }
-// console.log(sum(2,3));
+// console.log(getTotalReviewCount(book));
 
-const getYear = (str) => str.split("-")[0];
-console.log(getYear(publicationDate));
+//
+//Map methods ARRAY
 
-console.log(book.reviews.librarything.reviewsCount);
-const countWrong = book.reviews.librarything.reviewsCount || "no data";
-console.log(countWrong);
+const books = getBooks();
+const x = [1, 2, 3, 4, 5].map((e) => e * 2);
+console.log(x);
 
-const count = book.reviews.librarything.reviewsCount ?? "no data";
-console.log(count);
+const titles = books.map((book) => book.title);
+console.log(titles);
 
-function getTotalReviewCount(book) {
-  const goodreads = book.reviews?.goodreads?.reviewsCount;
-
-  //? optional chaining = ?
-  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
-  return goodreads + librarything;
-}
-console.log(getTotalReviewCount(book));
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  // reviewsCount: getTotalReviewCount(book),
+}));
+console.log(essentialData);
