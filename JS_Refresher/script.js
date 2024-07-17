@@ -1,3 +1,4 @@
+/*
 const data = [
   {
     id: 1,
@@ -134,7 +135,8 @@ const data = [
     },
   },
 ];
-
+*/
+/*
 function getBooks() {
   return data;
 }
@@ -280,3 +282,27 @@ const bookAfterUpdate = deleteBook.map((book) =>
   book.id === 1 ? { ...book1 } : book
 );
 console.log(bookAfterUpdate);
+*/
+
+//? ASYNC JS
+
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+// console.log("akshay");
+
+//
+//? ASYNC AWAIT
+
+async function getTodos() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+
+  const data = await response.json();
+  console.log(data);
+  return data;
+}
+const todos = getTodos();
+console.log(todos);
+
+console.log("akshay");
