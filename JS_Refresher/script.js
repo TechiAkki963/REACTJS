@@ -261,3 +261,22 @@ const sortedByPages = book1.slice().sort((a, b) => b.pages - a.pages);
 console.log(sortedByPages);
 
 //IMMUTABLE ARRAYS
+const newBook = {
+  id: 6,
+  title: "Harry Puuter and Chembur ka Cigratte",
+  author: " J. K Rawal",
+};
+
+//Add to an array
+const bookAfterAdd = [...book1, newBook];
+console.log(bookAfterAdd);
+
+// Delete from array
+const deleteBook = bookAfterAdd.filter((book) => book.id !== 3);
+deleteBook;
+
+// UPdate Book object in ARRAY
+const bookAfterUpdate = deleteBook.map((book) =>
+  book.id === 1 ? { ...book1 } : book
+);
+console.log(bookAfterUpdate);
