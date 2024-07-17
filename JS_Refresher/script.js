@@ -144,8 +144,8 @@ function getBook(id) {
 }
 
 // Destructuring
-const book = getBook(1);
-book;
+const books = getBook(1);
+books;
 
 // // const title = book.title;
 // // const author = book.author;
@@ -218,16 +218,28 @@ book;
 //
 //Map methods ARRAY
 
-const books = getBooks();
+const book1 = getBooks();
 const x = [1, 2, 3, 4, 5].map((e) => e * 2);
 console.log(x);
 
-const titles = books.map((book) => book.title);
+const titles = book1.map((book) => book.title);
 console.log(titles);
 
-const essentialData = books.map((book) => ({
+const essentialData = book1.map((book) => ({
   title: book.title,
   author: book.author,
   // reviewsCount: getTotalReviewCount(book),
 }));
 console.log(essentialData);
+
+//
+// Filter method Array and filter chaining
+const longbook = book1
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+console.log(longbook);
+
+const adventureBooks = book1
+  .filter((book) => book.genres.includes("adventure"))
+  .map((book) => book.title);
+console.log(adventureBooks);
