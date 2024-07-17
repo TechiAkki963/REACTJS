@@ -248,3 +248,16 @@ console.log(adventureBooks);
 //Reduce method Array
 const pagesAllBooks = book1.reduce((acc, book) => acc + book.pages, 0);
 pagesAllBooks;
+
+//
+//Sort Array
+
+const arr = [3, 7, 1, 9, 6];
+const sorted = arr.slice().sort((a, b) => a - b); //Ascending Sort
+console.log(sorted);
+console.log(arr);
+
+const sortedByPages = book1.slice().sort((a, b) => b.pages - a.pages);
+console.log(sortedByPages);
+
+//IMMUTABLE ARRAYS
