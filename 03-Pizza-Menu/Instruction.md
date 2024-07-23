@@ -30,5 +30,9 @@
   - Render the `App` component inside `root`
 
   ```
-  root.render(<App/>);
+  root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+  );
   ```
