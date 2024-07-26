@@ -40,3 +40,56 @@
 # Seperation of COncern
 
 - One components per FILE
+
+- CReate different file for CSS `index.css`
+
+# Import CSS
+
+```
+import "./index.css"
+```
+
+- to add classes to component use `className = "class name"`
+
+# PROPS
+
+- props are the object that contains the data
+
+# Reviewing PROPS
+
+- Props are used to pass data from `PARENT COMPONENT` to `CHILDREN COMPONENT`
+- PROPS are like Arguments passed to a FUnction
+- Any Value can be passes as `PROPS` : `Single Value`,`Arrays`, `Objects`,`Functions`,`Even other components`
+
+For Example :
+
+```JS
+const CourseRating=()=>{
+const[rating, setRating]= useState[0];
+
+return(
+<Rating
+text="Course rating"
+currentRating={rating}
+numOptions={3}
+options={["Terible","OKAY","Amazing"]}
+allRating={{num:2390, avg:4.9}}
+setRating={setRating}
+component={Star}
+/>
+
+);
+}
+
+const Star = ()=>{
+  //To do
+}
+```
+
+### PROPS are READ ONLY
+
+- <img src="./PROPS.png" alt="PROPS">
+- DATA is madeup of `props` and `state`
+
+- `State` is the data coming from the component's logic
+- `PROPS` is the data coming from the outside and only can be updated by `Parent Component`
