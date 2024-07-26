@@ -93,3 +93,9 @@ const Star = ()=>{
 
 - `State` is the data coming from the component's logic
 - `PROPS` is the data coming from the outside and only can be updated by `Parent Component`
+  - `PROPS` are immutable
+  - if u need to mutate a props, and actually need `STATE`
+
+## ONE WAY DATA FLOW
+
+- In React, Data can only be passed from PArent to CHILD
