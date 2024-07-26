@@ -36,3 +36,7 @@
   </React.StrictMode>
   );
   ```
+
+# Seperation of COncern
+
+- One components per FILE
