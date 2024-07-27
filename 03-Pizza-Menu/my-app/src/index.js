@@ -74,11 +74,18 @@ const Menu = () => {
       <h2>Our Menu</h2>
 
       {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzaData.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
+        //React Fragment
+        <>
+          <p>
+            Authentic Italian Cuisine. 6 creative dishes to choose from.All from
+            our stone oven, all organic, all delicious.
+          </p>
+          <ul className="pizzas">
+            {pizzaData.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
       ) : (
         <p>We're still working on the menu. Please come back later :)</p>
       )}
@@ -123,22 +130,23 @@ const Menu = () => {
   );
 };
 
-const Pizza = (props) => {
-  console.log(props);
+const Pizza = ({ pizzaObj }) => {
+  // console.log(props);
 
   // We can have multiple return
 
-  if (props.pizzaObj.soldOut) return null;
+  if (pizzaObj.soldOut) return null;
+
   return (
     <li className="pizza">
       <div>
-        <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+        <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       </div>
 
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price}</span>
       </div>
     </li>
   );
@@ -168,7 +176,7 @@ const Footer = () => {
         //   </p>
         //   <button className="btn">Order</button>
         // </div>
-        <Order closeHours={closeHour} />
+        <Order closeHours={closeHour} openHours={openHour} />
       ) : (
         <p>
           We are happy to welcome you between {openHour}:00 and {closeHour}:00
@@ -178,11 +186,12 @@ const Footer = () => {
   );
 };
 
-function Order(props) {
+function Order({ closeHour, openHour }) {
   return (
     <div className="order">
       <p>
-        We are open till {props.closeHour}:00. You can visit us or Order Online
+        We are open from {openHour}till {closeHour}:00. You can visit us or
+        Order Online
       </p>
       <button className="btn">Order</button>
     </div>

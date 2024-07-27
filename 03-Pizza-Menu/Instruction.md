@@ -99,3 +99,7 @@ const Star = ()=>{
 ## ONE WAY DATA FLOW
 
 - In React, Data can only be passed from PArent to CHILD
+
+# React Fragment
+
+- <></>
