@@ -16,6 +16,7 @@ code {
   border: 5px solid black;
   width: 500px;
   margin: 180px auto;
+  padding: 10px;
 }
 
 .card img {

@@ -25,6 +25,9 @@ const Intro = () => {
     <div className="card_content">
       <h3>Akshay Parab</h3>
       <p> Full Stack Web Developer and Member of Google Summer of Code</p>
+      <strong>
+        Github : <a href="https://github.com/TechiAkki963">TechiAkki963</a>
+      </strong>
     </div>
   );
 };
